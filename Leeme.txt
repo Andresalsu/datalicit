@@ -1,0 +1,22 @@
+Informacion del script:
+
+La funcionalidad se divide en los siguientes scripts:
+
+- App.py: Servidor Flask, recibe un PDF, lo almacena junto con su fecha de envio y lo envia al script datalicit.py para 
+extraer los datos. Luego que se ha generado la informacion, se devuelve una imagen codificada en base64 para ser leida
+posteriormente.
+
+-Datalicit.py: Script de funcionalidad principal. Al recibir un archivo PDF del pliego de condiciones de una licitacion,
+convierte cada pagina del PDF en una imagen para ser analizada, esto con el fin de poder tomar cualquier PDF sin importar
+si este es editable o no. Posteriormente, se lee cada imagen y se extrae su texto en un archivo TXT individual para ser leido
+y relacionar que pagina o paginas poseen relacion con los codigos de bienes UNSPSC y los requisitos organizacionales y
+financieros. Cada relacion tiene su propio metodo, en el cual se buscan coincidencias y tablas con los datos relacionados para
+ser extraidos y guardados en imagenes tipo PNG. Despues, cada resultado se concatena en una sola imagen JPEG y un solo PDF para
+ser visualizados y devueltos al servidor Flask.
+
+-DetectTables.py: Script complementario utilizado para la deteccion y extraccion de tablas en las imagenes analizadas. Se usa para
+detectar tablas que contengan datos relacionados con la busqueda, pues el extraer ese texto puede ser complicado y confuso.
+
+-TextoImagen.py: Script con mas funcionalidades pero un tanto imperfecto. Ademas de la extraccion de los datos UNSPSC, organizacionales
+y financieros, puede extraer presupuesto, codigo, objeto y plazo. Su funcionalidad puede variar en la medida del contenido de los pliegos
+y la forma en la que sus datos estan consignados.
