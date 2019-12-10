@@ -1,0 +1,3 @@
+[submodule "SECOP-back"]
+	path = SECOP-back
+	url = https://github.com/HugoSantiago/datalicitGIT.git
