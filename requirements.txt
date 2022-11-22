@@ -9,7 +9,7 @@ opencv_python==4.1.1.26
 pyspellchecker==0.5.2
 fpdf==1.7.2
 Flask==1.1.1
-Pillow==6.2.1
+Pillow==9.3.0
 PyPDF2==1.26.0
 spellchecker==0.4
 pdf2image==1.10.0
